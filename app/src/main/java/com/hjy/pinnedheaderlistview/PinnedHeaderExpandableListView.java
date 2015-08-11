@@ -1,6 +1,3 @@
-/**
- * Copyright © 2012-2013 Hangzhou Enniu Tech Ltd. All right reserved.
- */
 package com.hjy.pinnedheaderlistview;
 
 import android.content.Context;
@@ -8,7 +5,6 @@ import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -57,32 +53,15 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 	private FrameLayout mPinnedHeaderContainer;
 	
 	private Handler mHandler = new Handler();
-	
+
 	/**
-	 * @param context
-	 */
-	public PinnedHeaderExpandableListView(Context context) {
-		super(context);
-		init();
-	}
-	
-	/**
-	 * @param context
-	 * @param attrs
+	 * 默认构造器
+	 *
+	 * @param context Context
+	 * @param attrs 属性值
 	 */
 	public PinnedHeaderExpandableListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		init();
-	}
-	
-	/**
-	 * @param context
-	 * @param attrs
-	 * @param defStyle
-	 */
-	public PinnedHeaderExpandableListView(Context context, AttributeSet attrs,
-			int defStyle) {
-		super(context, attrs, defStyle);
 		init();
 	}
 
@@ -128,7 +107,6 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 		public void onGroupExpand(int groupPosition) {
 			if(mDelegateOnGroupExpandListener != null)
 				mDelegateOnGroupExpandListener.onGroupExpand(groupPosition);
-			Log.d(TAG, "onGroupExpand()....");
 			update();
 			mHandler.postDelayed(mRefreshRunnable, 300);
 		}		
@@ -177,7 +155,6 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 		@Override
 		public void onChanged() {
 			super.onChanged();
-			Log.d("DataSetObserver", "onChanged()");
 			int firstVisibleItem = getFirstVisiblePosition();
 			int visibleItemCount = getChildCount();
 			int totalItemCount = getAdapter().getCount();
@@ -186,7 +163,6 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 		}
 		
 		public void onInvalidated() {
-			Log.d("DataSetObserver", "onInvalidated()");
 			int firstVisibleItem = getFirstVisiblePosition();
 			int visibleItemCount = getChildCount();
 			int totalItemCount = getAdapter().getCount();
@@ -204,10 +180,8 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 				mDelegateOnScrollListener.onScrollStateChanged(view, scrollState);
 			}
 			if(scrollState == OnScrollListener.SCROLL_STATE_IDLE) {
-				Log.d("TAG", "onScroll state changed : idle");
 				updatePinnedHeaderContainer();
 			} else {
-				Log.d("TAG", "onScroll state changed : scrolling");
 				if(mPinnedHeaderContainer != null && mPinnedHeaderContainer.getVisibility() != View.GONE)
 					mPinnedHeaderContainer.setVisibility(View.GONE);
 			}
@@ -230,7 +204,6 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 			if (mCurrPinnedView != null && mAdapter != null) {
 				View header = mPinnedHeaderContainer.getChildAt(0);
 				if(header != null) {
-					Log.d("TAG", "update conatainer....");
 					mAdapter.getGroupView(mCurrPinnedView.position, isGroupExpanded(mCurrPinnedView.position), header, null);
 					mPinnedHeaderContainer.scrollTo(0, -mTranslateY);
 					mPinnedHeaderContainer.setVisibility(View.VISIBLE);
@@ -247,7 +220,6 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		Log.d("TAG", "invalidate()...");
 	}
 	
 	private void updatePinnedHeaderListView(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
@@ -264,13 +236,11 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 			return;
 		}
 		int groupPosition = getPackedPositionGroup(packedPosition);
-		Log.d(TAG, "firstVisibleItem = " + firstVisibleItem + " group position = " + groupPosition);
 		if(mCurrPinnedView == null) {
 			createPinnedHeader(groupPosition);
 		} else {
 			if(mCurrPinnedView.position == groupPosition) {
 				int nextGroupPosition = findNextGroupPosition(firstVisibleItem, visibleItemCount);
-				Log.d(TAG, "next group = " + nextGroupPosition);
 				if(nextGroupPosition != -1) {
 					View nextGroupView = getChildAt(nextGroupPosition - firstVisibleItem);
 					int top = nextGroupView.getTop();
@@ -329,7 +299,7 @@ public class PinnedHeaderExpandableListView extends ExpandableListView {
 	/**
 	 * 创建新的pinned header
 	 * 
-	 * @param position
+	 * @param groupPosition 分组索引值
 	 */
 	private void createPinnedHeader(int groupPosition) {
 		if(mAdapter == null)

@@ -1,6 +1,3 @@
-/**
- * Copyright © 2012-2013 Hangzhou Enniu Tech Ltd. All right reserved.
- */
 package com.hjy.pinnedheaderlistview;
 
 
@@ -19,34 +16,15 @@ import android.widget.ListAdapter;
 public class IndexablePinnedHeaderListView extends PinnedHeaderListView{
 
 	private IndexScroller mIndexScroller;
-	
-	/**
-	 * @param context
-	 */
-	public IndexablePinnedHeaderListView(Context context) {
-		super(context);
-		init();
-	}
 
 	/**
-	 * @param context
-	 * @param attrs
+	 * @param context Context
+	 * @param attrs 属性值
 	 */
 	public IndexablePinnedHeaderListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 	}
-	
-	/**
-	 * @param context
-	 * @param attrs
-	 * @param defStyle
-	 */
-	public IndexablePinnedHeaderListView(Context context, AttributeSet attrs,
-			int defStyle) {
-		super(context, attrs, defStyle);
-		init();
-	}	
 
 	private void init() {
 		mIndexScroller = new IndexScroller(getContext(), this);

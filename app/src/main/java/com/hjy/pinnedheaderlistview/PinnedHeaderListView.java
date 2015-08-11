@@ -1,6 +1,3 @@
-/**
- * Copyright © 2012-2013 Hangzhou Enniu Tech Ltd. All right reserved.
- */
 package com.hjy.pinnedheaderlistview;
 
 import android.content.Context;
@@ -55,37 +52,17 @@ public class PinnedHeaderListView extends ListView {
 	private FrameLayout mPinnedHeaderContainer;
 
 	/**
-	 * @param context
-	 */
-	public PinnedHeaderListView(Context context) {
-		super(context);
-		Log.d(TAG, "constructor 1...");
-		initView();
-	}
-
-	/**
-	 * @param context
-	 * @param attrs
+     * 构造器
+     *
+	 * @param context Context
+	 * @param attrs 属性值
 	 */
 	public PinnedHeaderListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		Log.d(TAG, "constructor 2...");
-		initView();
-	}
-
-	/**
-	 * @param context
-	 * @param attrs
-	 * @param defStyle
-	 */
-	public PinnedHeaderListView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		Log.d(TAG, "constructor 3...");
 		initView();
 	}
 
 	private void initView() {
-		Log.d(TAG, "initView()");
 		// 设置滑动监听器，主要的处理逻辑在这里
 		setOnScrollListener(mOnScrollListener);
 	}
@@ -313,8 +290,6 @@ public class PinnedHeaderListView extends ListView {
 		pinnedView.position = position;
 		pinnedView.view = pinnedHeader;
 		mCurrPinnedView = pinnedView;
-
-		Log.d("Hou1", "---------------create pin " + mCurrPinnedView.position);
 	}
 
 	@Override
@@ -376,12 +351,13 @@ public class PinnedHeaderListView extends ListView {
 		super.setOnItemLongClickListener(listener);
 	}
 
+	/**
+	 *
+	 */
 	public static abstract class OnPinnedHeaderListViewItemClickListener implements OnItemClickListener {
 
 		@Override
 		public final void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-			Log.d(TAG, "onItemClick : position = " + position);
-
 			PinnedHeaderAdapter adapter = null;
 			int headerCount = 0;
 			int footerCount = 0;
@@ -418,15 +394,28 @@ public class PinnedHeaderListView extends ListView {
 			}
 		}
 
+        /**
+         *
+         * @param adapterView ListView
+         * @param section 分组的索引值
+         * @param id 数据id
+         */
 		public abstract void onSectionHeaderClick(AdapterView<?> adapterView, int section, long id);
 
+        /**
+         *
+         * @param adapterView ListView
+         * @param section 分组的索引值
+         * @param positionInSection 每组里的索引
+         * @param id 数据id
+         */
 		public abstract void onItemClick(AdapterView<?> adapterView, int section, int positionInSection, long id);
 
 		/**
 		 * 点击ListView.addHeader()添加的item
-		 * 
-		 * @param adapterView
-		 * @param position
+		 *
+		 * @param adapterView ListView
+		 * @param position header里的索引值
 		 */
 		public void onHeaderClick(AdapterView<?> adapterView, int position) {
 			
@@ -434,9 +423,9 @@ public class PinnedHeaderListView extends ListView {
 
 		/**
 		 * 点击ListView.addFooter()添加的item
-		 * 
-		 * @param adapterView
-		 * @param position 第一个footerView从0开始
+		 *
+		 * @param adapterView ListView
+		 * @param position footer里的索引值，从0开始
 		 */
 		public void onFooterClick(AdapterView<?> adapterView, int position) {
 			
@@ -448,8 +437,6 @@ public class PinnedHeaderListView extends ListView {
 
 		@Override
 		public final boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-			Log.d(TAG, "onLongItemClick : position = " + position);
-
 			PinnedHeaderAdapter adapter = null;
 			int headerCount = 0;
 			int footerCount = 0;

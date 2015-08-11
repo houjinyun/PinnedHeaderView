@@ -1,6 +1,3 @@
-/**
- * Copyright © 2012-2013 Hangzhou Enniu Tech Ltd. All right reserved.
- */
 package com.hjy.pinnedheaderlistview;
 
 import android.annotation.SuppressLint;
@@ -207,9 +204,10 @@ public abstract class PinnedHeaderAdapter extends BaseAdapter implements Section
 	/**
 	 * 注意与getSectionHeaderViewType()分开来，取值范围[0 - getChildItemViewTypeCount());
 	 * 
-	 * @param section
-	 * @param positionInSection
-	 * @return
+	 * @param section 分组索引值
+	 * @param positionInSection 每组里的position
+	 *
+	 * @return ItemViewType
 	 */
 	public int getChildItemViewType(int section, int positionInSection) {
 		return 0;
@@ -218,8 +216,8 @@ public abstract class PinnedHeaderAdapter extends BaseAdapter implements Section
 	/**
 	 * 注意与getChildItemViewType()分开来，取值范围要从[0 - getSectionHeaderViewTypeCount()-1);
 	 * 
-	 * @param section
-	 * @return
+	 * @param section 分组索引值
+	 * @return ItemViewType
 	 */
 	public int getSectionHeaderViewType(int section) {
 		return 0;
@@ -227,12 +225,8 @@ public abstract class PinnedHeaderAdapter extends BaseAdapter implements Section
     
 	@Override
 	public final View getView(int position, View convertView, ViewGroup parent) {
-		Log.d(TAG, "getView:" + position);
 		boolean isHeader = isSectionHeader(position);
-		Log.d(TAG, "isHeader:" + isHeader);
-		Log.d(TAG, "getSectionForPosition:" + getSectionForPosition(position));
 		if(isHeader) {
-			Log.d(TAG, "this is header");
 			return getSectionHeaderView(getSectionForPosition(position), convertView, parent);
 		}
 		return getSectionItemView(getSectionForPosition(position), getPositionInSectionForPosition(position), convertView, parent);

@@ -1,6 +1,3 @@
-/**
- * Copyright © 2012-2013 Hangzhou Enniu Tech Ltd. All right reserved.
- */
 package com.hjy.pinnedheaderlistview;
 
 import android.content.Context;
@@ -121,7 +118,7 @@ public class IndexScroller {
 	/**
 	 * 设置索引条的宽度
 	 * 
-	 * @param indexBarWidth
+	 * @param indexBarWidth 索引条的宽度
 	 */
 	public void setIndexBarWidth(float indexBarWidth) {
 		mIndexBarWidth = indexBarWidth;
@@ -131,9 +128,9 @@ public class IndexScroller {
 	/**
 	 * 设置索引条的margin值
 	 * 
-	 * @param marginTop
-	 * @param marginRight
-	 * @param marginBottom
+	 * @param marginTop margin
+	 * @param marginRight margin
+	 * @param marginBottom margin
 	 */
 	public void setIndexbarMargin(float marginTop, float marginRight, float marginBottom) {
 		mIndexBarMarginTop = marginTop;
@@ -145,8 +142,8 @@ public class IndexScroller {
 	/**
 	 * 设置索引条的paddingTop, paddingBottom值
 	 * 
-	 * @param paddingTop
-	 * @param paddingBottom
+	 * @param paddingTop padding
+	 * @param paddingBottom padding
 	 */
 	public void setIndexbarPadding(float paddingTop, float paddingBottom) {
 		mIndexBarPaddingTop = paddingTop;
@@ -156,8 +153,8 @@ public class IndexScroller {
 	/**
 	 * 设置预览区域宽度、高度
 	 * 
-	 * @param previewWidth
-	 * @param previewHeight
+	 * @param previewWidth 预览区域宽度
+	 * @param previewHeight 预览区域高度
 	 */
 	public void setPreviewSize(float previewWidth, float previewHeight) {
 		mPreviewWidth = previewWidth;
