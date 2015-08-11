@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PinnedHeaderListView.iml" filepath="$PROJECT_DIR$/PinnedHeaderListView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PinnedHeaderListView/PinnedHeaderListView-PinnedHeaderListView.iml" filepath="$PROJECT_DIR$/PinnedHeaderListView/PinnedHeaderListView-PinnedHeaderListView.iml" />
     </modules>
   </component>
 </project>
