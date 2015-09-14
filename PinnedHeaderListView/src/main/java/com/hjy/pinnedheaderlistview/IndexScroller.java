@@ -50,7 +50,11 @@ public class IndexScroller {
 	/** 当前选中的section */
 	private int mCurrentSection = -1;
 	private boolean mIndexing;
-	
+
+    /**
+     * 是否显示预览
+     */
+    private boolean mShowPreview = true;
 	
 	public IndexScroller(Context context, ListView listView) {
 		mListView = listView;
@@ -148,6 +152,9 @@ public class IndexScroller {
 		mPreviewTextPaint.setTextSize(textSize);
 	}
 
+    public void setShowPreiview(boolean isShow) {
+        mShowPreview = isShow;
+    }
 
 	/**
 	 * 设置索引条的宽度
@@ -215,7 +222,7 @@ public class IndexScroller {
 			canvas.drawText(mSections[i], mIndexbarRect.left + paddingLeft, mIndexbarRect.top + mIndexBarPaddingTop + sectionHeight * i + paddingTop - mIndexPaint.ascent(), mIndexPaint);
 		}
 		
-		if(mCurrentSection >= 0 && mCurrentSection < mSections.length) {
+		if(mShowPreview && mCurrentSection >= 0 && mCurrentSection < mSections.length) {
 			//绘制预览文本以及背景
 			float previewTextWidth = mPreviewTextPaint.measureText(mSections[mCurrentSection]);
 			float previewTextHeight = mPreviewTextPaint.descent() - mPreviewTextPaint.ascent();
@@ -242,10 +249,12 @@ public class IndexScroller {
 		}
 		case MotionEvent.ACTION_MOVE: {
 			if(mIndexing) {
-				if(contains(event.getX(), event.getY())) {
+/*				if(contains(event.getX(), event.getY())) {
 					mCurrentSection = findSectionByPoint(event.getY());
 					mListView.setSelection(mSectionIndexer.getPositionForSection(mCurrentSection));
-				}
+				}*/
+                mCurrentSection = findSectionByPoint(event.getY());
+                mListView.setSelection(mSectionIndexer.getPositionForSection(mCurrentSection));
 				return true;
 			}
 			break;

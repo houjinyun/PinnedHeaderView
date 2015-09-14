@@ -153,3 +153,12 @@
 		
 		 //设置预览区域的大小<br>
 		 public void setPreviewSize(float previewWidth, float previewHeight)
+
+		 //设置索引条宽度<br>
+		 setIndexBarWidth(int width)
+
+		 //设置索引条区域的margin<br>
+		 public void setIndexbarMargin(float marginTop, float marginRight, float marginBottom)
+
+		 //是否显示预览，默认为true<br>
+		 public void setShowPreiview(boolean isShow)
