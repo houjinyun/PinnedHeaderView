@@ -124,32 +124,32 @@
  * 通过IndexablePinnedHeaderListView.getIndexScroller()获取到IndexScroller对象
  * 修改IndexScroller的一些属性，如：
  	
-		 //设置索引条背景颜色
- 		 public void setIndexBarBackgroundColor(int bgColor)
+		//设置索引条背景颜色<br>
+ 		public void setIndexBarBackgroundColor(int bgColor)
 
-		 //设置索引条背景的透明度
-		 public void setIndexBarBackgroundColorAlpha(int alpha)
+		//设置索引条背景的透明度<br>
+		public void setIndexBarBackgroundColorAlpha(int alpha)
 
-		 //设置索引条文本字体颜色
-		 public void setIndexBarTextColor(int textColor)
+		//设置索引条文本字体颜色<br>
+		public void setIndexBarTextColor(int textColor)
 
-		 //设置索引条文本字体大小
-		 public void setIndexBarTextSize(float textSize)
+		//设置索引条文本字体大小<br>
+		public void setIndexBarTextSize(float textSize)
 
-		 //设置预览区域背景颜色
-		 public void setPreviewBackgroundColor(int bgColor)
+		//设置预览区域背景颜色<br>
+		public void setPreviewBackgroundColor(int bgColor)
 		
-		 //设置预览区域背景的透明度
-		 public void setPreviewBackgroundColorAlpha(int alpha)
+		//设置预览区域背景的透明度<br>
+		public void setPreviewBackgroundColorAlpha(int alpha)
 
-		 //设置预览区域字体颜色
-		 public void setPreviewTextColor(int bgColor)
+		//设置预览区域字体颜色<br>
+		public void setPreviewTextColor(int bgColor)
 
-		 //设置预览区域字体大小
-		 public void setPreviewTextSize(float textSize)
+		//设置预览区域字体大小<br>
+		public void setPreviewTextSize(float textSize)
 		
-		 //设置索引条的宽度
-		 public void setIndexBarWidth(float indexBarWidth)
+		//设置索引条的宽度<br>
+		public void setIndexBarWidth(float indexBarWidth)
 		
-		 //设置预览区域的大小
-		 public void setPreviewSize(float previewWidth, float previewHeight)
+		//设置预览区域的大小<br>
+		public void setPreviewSize(float previewWidth, float previewHeight)
