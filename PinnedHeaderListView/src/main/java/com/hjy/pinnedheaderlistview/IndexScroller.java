@@ -91,7 +91,7 @@ public class IndexScroller {
 		mPreviewTextPaint.setAntiAlias(true);
 		mPreviewTextPaint.setTextSize(50 * mScaledDensity);
 	}
-	
+
 	/**
 	 * 初始化indexbar rect
 	 */
@@ -114,7 +114,41 @@ public class IndexScroller {
 		initIndexbarRect();
 		initPreviewRect();
 	}
-	
+
+
+	public void setIndexBarBackgroundColor(int bgColor) {
+		mIndexbarPaint.setColor(bgColor);
+	}
+
+	public void setIndexBarBackgroundColorAlpha(int alpha) {
+		mIndexbarPaint.setAlpha(alpha);
+	}
+
+	public void setIndexBarTextColor(int textColor) {
+		mIndexPaint.setColor(textColor);
+	}
+
+	public void setIndexBarTextSize(float textSize) {
+		mIndexPaint.setTextSize(textSize);
+	}
+
+	public void setPreviewBackgroundColor(int bgColor) {
+		mPreviewPaint.setColor(bgColor);
+	}
+
+	public void setPreviewBackgroundColorAlpha(int alpha) {
+		mPreviewPaint.setAlpha(alpha);
+	}
+
+	public void setPreviewTextColor(int bgColor) {
+		mPreviewTextPaint.setColor(bgColor);
+	}
+
+	public void setPreviewTextSize(float textSize) {
+		mPreviewTextPaint.setTextSize(textSize);
+	}
+
+
 	/**
 	 * 设置索引条的宽度
 	 * 

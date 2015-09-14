@@ -458,9 +458,12 @@ public class PinnedHeaderListView extends ListView {
 				onHeaderLongClick(parent, position);
 				return false;
 			}
-			// 如果点击的是footer vier，也不响应
-			if (footerCount > 0 && position >= parent.getAdapter().getCount() - footerCount)
+			// 如果点击的是footer view，也不响应
+			if (footerCount > 0 && position >= parent.getAdapter().getCount() - footerCount) {
+				onFooterLongClick(parent, position - (parent.getAdapter().getCount() - footerCount));
 				return false;
+			}
+
 			int adjustPosition = position - headerCount;
 			int section = adapter.getSectionForPosition(adjustPosition);
 			if (adapter.isSectionHeader(adjustPosition)) {
@@ -476,7 +479,13 @@ public class PinnedHeaderListView extends ListView {
 
 		public abstract void onItemLongClick(AdapterView<?> adapterView, int section, int positionInSection, long id);
 
-		public abstract void onHeaderLongClick(AdapterView<?> adapterView, int position);
+		public void onHeaderLongClick(AdapterView<?> adapterView, int position) {
+
+		}
+
+		public void onFooterLongClick(AdapterView<?> adapterView, int position) {
+
+		}
 	}
 
 }

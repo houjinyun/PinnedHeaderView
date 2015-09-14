@@ -32,7 +32,7 @@ def gitUrl = "https://github.com/houjinyun/PinnedHeaderView.git"
 
 //groupId
 group = "com.hjy.library"
-version = "1.0.2"
+version = "1.0.3"
 
 install {
     repositories.mavenInstaller {
